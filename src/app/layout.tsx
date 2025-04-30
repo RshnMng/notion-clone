@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ClerkProvider } from '@clerk/nextjs';
 import Header from "@/components/Header";
+import Sidebar from "@/components/Sidebar";
 
 
 export const metadata: Metadata = {
@@ -19,7 +20,14 @@ export default function RootLayout({
           <html lang="en">
                     <body>
                          <Header/>
-                         {children}
+                         <div className='bg-green-500 flex min-h-screen'>
+
+                                        <Sidebar />
+                                        <div className='bg-yellow-500 flex-1'>
+                                               {children}
+
+                                        </div>
+                         </div>
                     </body>
           </html>
     </ClerkProvider>
