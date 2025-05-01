@@ -3,31 +3,40 @@ import NewDocumentButton from './NewDocumentButton'
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
+import { MenuIcon } from 'lucide-react'
 
 
 const Sidebar = () => {
+
+    const menuOptions = (
+        <>
+            <NewDocumentButton />
+
+        
+        </>
+    )
   return (
     <div className='p-2 md:p-5 relative'>
+        <div className='md:hidden'>
         <Sheet>
-            <SheetTrigger>Open</SheetTrigger>
+            <SheetTrigger>
+                <MenuIcon />
+             </SheetTrigger>
             <SheetContent side='left' className="w-[400px] sm:w-[540px]">
              <SheetHeader>
-              <SheetTitle>Are you absolutely sure?</SheetTitle>
-                 <SheetDescription>
-                  This action cannot be undone. This will permanently delete your account
-                  and remove your data from our servers.
-               </SheetDescription>
+              <SheetTitle>Menu</SheetTitle>
                 </SheetHeader>
-            </SheetContent>
+                {menuOptions}
+            </SheetContent> 
         </Sheet>
+        </div>
 
                 <div className='hidden md:inline'>
-                        <NewDocumentButton />
+                        {menuOptions}
 
                 </div>
     </div>
