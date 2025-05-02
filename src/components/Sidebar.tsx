@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react'
 import NewDocumentButton from './NewDocumentButton'
 import {
@@ -8,15 +10,23 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { MenuIcon } from 'lucide-react'
+import { useCollection } from 'react-firebase-hooks/firestore';
+import { useUser } from '@clerk/nextjs';
 
 
 const Sidebar = () => {
+      const { user } = useUser();
+      const [ data, loading, error ] = useCollection(
+            user && (
+                <h1>place holder</h1>
+            )
+      );
+
+
 
     const menuOptions = (
         <>
             <NewDocumentButton />
-
-        
         </>
     )
   return (
