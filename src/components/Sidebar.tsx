@@ -76,9 +76,12 @@ const Sidebar = () => {
         <>
             <NewDocumentButton />
 
-            {groupedData.owner.length === 0 ? <h2>No Documents Found</h2> : groupedData.owner.map((document) => {
+            <div className='bg-pink-300 flex flex-col space-y-4'>
+                 <h2>My Documents</h2>
+                 {groupedData.owner.length === 0 ? <h2>No Documents Found</h2> : groupedData.owner.map((document) => {
               return <p>{document.id}</p>
             })}
+            </div>
         </>
     )
   return (
