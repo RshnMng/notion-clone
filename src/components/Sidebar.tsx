@@ -13,8 +13,9 @@ import {
 import { MenuIcon } from 'lucide-react'
 import { useCollection } from 'react-firebase-hooks/firestore';
 import { useUser } from '@clerk/nextjs';
-import { collectionGroup, query, where, DocumentData } from 'firebase/firestore';
+import { collectionGroup, query, where, DocumentData, doc } from 'firebase/firestore';
 import { db } from '@/firebase';
+import SideOption from './SideOption';
 
 interface RoomDocument extends DocumentData {
   createdAt: string
@@ -74,14 +75,15 @@ const Sidebar = () => {
 
     const menuOptions = (
         <>
+        <div className='flex py-4 flex-col space-y-4 md:max-w-48'>
             <NewDocumentButton />
-
             <div className='bg-pink-300 flex flex-col space-y-4'>
                  <h2>My Documents</h2>
                  {groupedData.owner.length === 0 ? <h2>No Documents Found</h2> : groupedData.owner.map((document) => {
-              return <p>{document.id}</p>
+              return  <SideOption key={document.id} id={document.id} href={`/doc/${document.id}`}/> // this is where we putting the sidebar component
             })}
             </div>
+         </div>
         </>
     )
   return (
