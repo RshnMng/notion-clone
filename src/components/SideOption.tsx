@@ -12,7 +12,6 @@ const SideOption = ({ href, id } : { href: string, id: string}) => {
 
     const isActive = href.includes(pathName) && pathName !== '/';
 
-    console.log(pathName, isActive)
 
     if(!data) return null;
 
