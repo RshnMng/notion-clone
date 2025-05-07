@@ -12,11 +12,13 @@ const SideOption = ({ href, id } : { href: string, id: string}) => {
 
     const isActive = href.includes(pathName) && pathName !== '/';
 
+    console.log(pathName, isActive)
+
     if(!data) return null;
 
   return <>
-            <Link href={href} className={`border p-2 rounded-md ${isActive ? 'bg-brown-300 font-bold border-black': 'border-gray-300 bg-red-500'}`}>
-                     <p>{data.title}</p>
+            <Link href={href} className={`border p-2 rounded-md ${isActive ? 'bg-blue-300 font-bold border-black': 'border-gray-300 bg-red-500'}`}>
+                     <p className='truncate'>{data.title}</p>
             </Link>
         </>
 }
