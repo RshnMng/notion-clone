@@ -32,10 +32,9 @@ const Document = ({ id }  : {id: string}) => {
 
   return (
     <>
-
-        <div>
-                <form onSubmit={updateTitle}>
-                        <Input value={input} onChange={(event) => setInput(event.target.value)}/>
+        <div >
+                <form onSubmit={updateTitle} className='flex max-w-1xl justify-between space-x-3 mt-2 ml-2' >
+                        <Input value={input} onChange={(event) => setInput(event.target.value)} className='flex-1'/>
                         <Button disabled={isUpdating} type='submit'>{isUpdating ? 'Updating...' : 'Update'}</Button>
                 </form>
         </div>
