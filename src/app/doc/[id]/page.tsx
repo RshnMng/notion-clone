@@ -1,8 +1,15 @@
-import React from 'react'
+'use client'
 
-const DocumentPage = () => {
+import React from 'react'
+import Document from '@/src/components/Document'
+
+const DocumentPage = ({params: {id}}: {params: {id : string}}) => {
   return (
-    <div>DocumentPage</div>
+    <div className='flex flex-col flex-1 min-h-screen'>
+
+       <Document />
+
+    </div>
   )
 }
 
