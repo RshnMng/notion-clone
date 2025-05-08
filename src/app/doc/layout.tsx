@@ -4,7 +4,7 @@ import LiveBlocksProvider from '@/src/components/LiveBlocksProvider'
 const PageLayout = ({ children } : { children : React.ReactNode }) => {
   return (
 
-    <LiveBlocksProvider>{ children }</LiveBlocksProvider>
+    <LiveBlocksProvider>{children}</LiveBlocksProvider>
   )
 }
 

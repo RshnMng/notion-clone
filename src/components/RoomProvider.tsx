@@ -3,6 +3,7 @@ import React from 'react'
 import { ClientSideSuspense, RoomProvider as RoomProviderWrapper } from '@liveblocks/react/suspense';
 import { Client } from '@clerk/nextjs/server';
 import LoadingSpinner from './LoadingSpinner';
+import LiveCursorProvider from './LiveCursorProvider';
 
 export const RoomProvider = ({ roomId, children } : { roomId: string, children: React.ReactNode}) => {
   return (
