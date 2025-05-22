@@ -26,8 +26,7 @@ interface RoomDocument extends DocumentData {
 
 const Sidebar = () => {
       const { user } = useUser();
-      console.log(user, 'user');
-      console.log(db, 'data base')
+
       const [ data, loading, error ] = useCollection(
             user && (
                query( collectionGroup(db, 'rooms'))
