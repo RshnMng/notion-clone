@@ -6,6 +6,7 @@ import { Button } from './ui/button';
 import { doc, updateDoc } from 'firebase/firestore';
 import { db } from '@/firebase'
 import { useDocumentData } from 'react-firebase-hooks/firestore';
+import  Editor  from './Editor';
 
 const Document = ({ id }  : {id: string}) => {
     const [input, setInput] = useState('');
@@ -37,6 +38,11 @@ const Document = ({ id }  : {id: string}) => {
                         <Input value={input} onChange={(event) => setInput(event.target.value)} className='flex-1'/>
                         <Button disabled={isUpdating} type='submit'>{isUpdating ? 'Updating...' : 'Update'}</Button>
                 </form>
+
+
+                <div>
+                        <Editor />
+                </div>
         </div>
     </>
   )
