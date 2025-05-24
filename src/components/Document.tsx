@@ -8,6 +8,8 @@ import { db } from '@/firebase'
 import { useDocumentData } from 'react-firebase-hooks/firestore';
 import  Editor  from './Editor';
 import useOwner from '../lib/useOwner';
+import DeleteDocument from './DeleteDocument';
+
 
 const Document = ({ id }  : {id: string}) => {
     const [input, setInput] = useState('');
@@ -42,7 +44,10 @@ const Document = ({ id }  : {id: string}) => {
                         <Input value={input} onChange={(event) => setInput(event.target.value)} className='flex-1'/>
                         <Button disabled={isUpdating} type='submit'>{isUpdating ? 'Updating...' : 'Update'}</Button>
 
-                        {isOwner &&  <p>i am the owner</p>}
+                        {isOwner &&  <>
+                                        <DeleteDocument />
+                        
+                                    </>}
                 </form>
 
 
