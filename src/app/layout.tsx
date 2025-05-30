@@ -3,6 +3,7 @@ import "./globals.css";
 import { ClerkProvider } from '@clerk/nextjs';
 import Header from "@/src/components/Header";
 import Sidebar from "@/src/components/Sidebar";
+import { Toaster } from "sonner";
 
 
 export const metadata: Metadata = {
@@ -28,6 +29,7 @@ export default function RootLayout({
 
                                         </div>
                          </div>
+                    <Toaster position='bottom-center'/>
                     </body>
           </html>
     </ClerkProvider>

@@ -1,7 +1,9 @@
 'use client';
 import React from 'react';
 import { useState, useTransition } from 'react';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
+import { toast } from 'sonner';
+import { deleteDocument } from '@/actions/actions';
 
 import {
   Dialog,
@@ -20,6 +22,8 @@ function DeleteDocument() {
     const [isOpen, setIsOpen] = useState(false);
     const [isPending, startTransition] = useTransition();
     const path = usePathname();
+    const router = useRouter();
+
 
 
     const handleDelete = async () => {
@@ -27,7 +31,17 @@ function DeleteDocument() {
 
         if(!roomId) return;
 
-        console.log(roomId, 'roomid')
+        startTransition( async () => {
+            const { success } = await deleteDocument(roomId)
+
+            if ( success ) {
+                setIsOpen(false);
+                router.replace('/');
+                toast.success('Room Deleted succesfully');          
+            } else {
+                toast.error( 'failed to delete room');
+            }
+        })
     
 
     }
